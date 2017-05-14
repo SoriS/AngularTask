@@ -1,22 +1,37 @@
 var model = {
-        items: [
-                { purchase: "Хлеб", done: false },
-                { purchase: "Масло", done: false },
-                { purchase: "Картофель", done: true },
-                { purchase: "Сыр", done: false }
-        ]
+    items: [
+        { purchase: "Поспать", done: false, status: true },
+        { purchase: "Поесть", done: false, status: true },
+        { purchase: "Попить", done: true, status: true },
+        { purchase: "Покурить", done: false, status: true }
+    ]
 };
 
-//fot git commit
+
 submitExample.controller('ExampleController', function ($scope) {
     $scope.items = model.items;
     $scope.submit = function () {
         if ($scope.text) {
-            $scope.items.push({ purchase: $scope.text, done: false });
+            $scope.items.push({ purchase: $scope.text, done: false, status: true });
             $scope.text = '';
         }
-
-        
     };
+    $scope.Rename = function (item) {
+
+        item.status = !item.status;
+    }
+    $scope.onBlur = function($event,item) {
+
+        item.status = !item.status;
+    }
+    submitExample.filter('all', function(){
+     return function(all){
+         if(all===false)
+
+        // некоторые действия над param
+        return items;
+    }
+})
+
 });
 
