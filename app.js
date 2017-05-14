@@ -1,0 +1,1 @@
+var submitExample = angular.module('purchaseApp', [])
