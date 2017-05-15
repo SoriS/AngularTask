@@ -16,19 +16,19 @@ submitExample.controller('ExampleController', function ($scope) {
             $scope.text = '';
         }
     };
-    $scope.Rename = function (item) {
+    $scope.Rename = function ($event,item) {
 
         item.status = !item.status;
     }
-    $scope.onBlur = function($event,item) {
+     $scope.onBlur = function($event,item) {
 
-        item.status = !item.status;
-    }
+        if(item.status===false){
+         item.status = !item.status;}
+     }
     submitExample.filter('all', function(){
      return function(all){
          if(all===false)
-
-        // некоторые действия над param
+         
         return items;
     }
 })

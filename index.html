@@ -50,9 +50,10 @@
 
             <tbody>
 
-                <tr ng-repeat="item in items | filter:text | filter:(!all || '') && options | orderBy:'purchase' track by $index">
+                <tr ng-model-options="{ updateOn: 'blur' }"
+ ng-repeat="item in items | filter: text | filter:(!all || '') && options | orderBy:'purchase' track by $index">
 
-                    <td><input class="form-control" type="text" ng-model="item.purchase" ng-readonly="item.status" ng-dblclick="Rename(item)"
+                    <td><input class="form-control" type="text" ng-model="item.purchase" ng-readonly="item.status" ng-dblclick="Rename($event,item)"
                             ng-blur="onBlur($event,item)" /></td>
 
                     <td><input type="checkbox" ng-model="item.done" /></td>
